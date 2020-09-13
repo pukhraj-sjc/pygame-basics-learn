@@ -1,6 +1,9 @@
 import pygame
 
 class projectile(object):
+    """
+    class handling the bullet player hitting the enemy
+    """
     def __init__(self,x,y,radius,color,facing):
         self.x = x
         self.y = y
@@ -10,6 +13,11 @@ class projectile(object):
         self.vel = 8 * facing
 
     def draw(self,win):
+        """
+        function used to draw the bullets
+        :param win:
+        :return:
+        """
         pygame.draw.circle(win,self.color,(self.x,self.y),self.radius)
 
 

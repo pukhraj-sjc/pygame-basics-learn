@@ -1,6 +1,10 @@
+# !/usr/bin/python
 import pygame
 
 class kilvish(object):
+    """
+    class used to create the enemy
+    """
     walkRight = [pygame.image.load('./gallery/sprites/R1E.png'), pygame.image.load('./gallery/sprites/R2E.png'),
                  pygame.image.load('./gallery/sprites/R3E.png'), pygame.image.load('./gallery/sprites/R4E.png'),
                  pygame.image.load('./gallery/sprites/R5E.png'), pygame.image.load('./gallery/sprites/R6E.png'),
@@ -15,6 +19,14 @@ class kilvish(object):
                 pygame.image.load('./gallery/sprites/L11E.png')]
 
     def __init__(self,x,y,width,height,end):
+        """
+        constructor for the enemy class
+        :param x:
+        :param y:
+        :param width:
+        :param height:
+        :param end:
+        """
         self.x = x
         self.y = y
         self.width = width
@@ -27,6 +39,10 @@ class kilvish(object):
         self.hitbox = (self.x + 17,self.y+2, 31,57)
 
     def move(self):
+        """
+        function which makes the enemy player move from left to right
+        :return:
+        """
         if self.vel > 0:
             if self.x + self.vel < self.path[1]:
                 self.x += self.vel
@@ -41,6 +57,11 @@ class kilvish(object):
                 self.walkCount = 0
 
     def draw(self,win):
+        """
+        function to create the enemy player on the user interface
+        :param win:
+        :return:
+        """
         self.move()
         if self.walkCount +1 >= 33:
             self.walkCount = 0

@@ -1,3 +1,10 @@
+# !/usr/bin/python
+"""
+Owner: Pukhraj
+Description :- learning concepts of pygame
+module install command:- pip install pygame==2.0.0.dev4
+"""
+# Standard Modules
 import pygame
 from bullet import projectile
 from enemy import kilvish
@@ -12,6 +19,9 @@ char = pygame.image.load('./gallery/sprites/standing.png')
 score = 0
 
 class player(object):
+    """
+    This class creates the player
+    """
     def __init__(self,x,y,width,height):
         self.x = x
         self.y = y
@@ -25,6 +35,11 @@ class player(object):
         self.hitbox = (self.x + 17, self.y + 11, 25, 52)
 
     def draw(self,win):
+        """
+        function used to blit the player on user interface
+        :param win:
+        :return:
+        """
         if self.walkCount +1 >= 27:
             self.walkCount = 0
 
@@ -41,6 +56,10 @@ class player(object):
 
 
 def redrawGameWindow():
+    """
+    common function to call all the draw functions of each class
+    :return:
+    """
     win.blit(bg, (0, 0))
     text = font.render('Score: ' + str(score), 1, (0, 0, 0))
     win.blit(text, (390, 10))
